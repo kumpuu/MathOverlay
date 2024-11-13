@@ -4,7 +4,8 @@
   "description": "An overlay to type in formulas and export to clipboard.",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
   },
   "keywords": [
     "math"
@@ -13,5 +14,8 @@
   "license": "ISC",
   "devDependencies": {
     "electron": "^33.2.0"
+  },
+  "dependencies": {
+    "mathlive": "^0.101.1"
   }
 }
