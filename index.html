@@ -13,8 +13,22 @@
     />
     <title>Hello from Electron renderer!</title>
   </head>
+
   <body>
-    <h1>Hello from Electron renderer!</h1>
-    <p>👋</p>
+    <details id="formula_details" open="true" settings="open">
+      <summary>Formula</summary>
+      <math-field id="formula">
+          x=\frac{-b\pm \sqrt{b^2-4ac}}{2a}
+      </math-field>
+    </details>
+    <p>
+      <span id="btn_export_png" class="btn">PNG</span>
+      <span id="btn_export_svg" class="btn">SVG</span>
+    </p>
+    <br>
+    <details id="latex_details" open="true" settings="open">
+      <summary>Latex</summary>
+      <textarea class="output" id="latex" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false"></textarea>
+    </details>
   </body>
 </html>

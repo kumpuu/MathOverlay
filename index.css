@@ -1,0 +1,41 @@
+body{
+    padding: 0.5em 1em;
+    font-size: larger;
+}
+
+details{
+    width: 100%;
+}
+
+summary{
+    font-size: small;
+    font-family: sans-serif;
+    margin-bottom: 0.25em;
+    cursor: pointer;
+}
+
+summary:hover{
+    background-color: #0000000c;
+}
+
+textarea{
+    width: 100%;
+    resize: vertical;
+}
+
+#formula{
+    width: 100%;
+}
+
+.btn{
+    width: 6em;
+    display: inline-block;
+    height: 2em;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#btn_export_png{
+    
+}
