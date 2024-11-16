@@ -2,8 +2,13 @@ const { app, BrowserWindow } = require('electron/main')
 
 const createWindow = () => {
   const win = new BrowserWindow({
+    icon:'./icon.png',
+    autoHideMenuBar: true,
     width: 800,
-    height: 600
+    height: 320,
+    webPreferences: {
+      preload: path.join(__dirname, 'preload.js')
+    }
   })
 
   win.loadFile('index.html')
