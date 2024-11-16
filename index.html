@@ -3,15 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta
+    <!-- <meta
       http-equiv="Content-Security-Policy"
       content="default-src 'self'; script-src 'self'"
     />
     <meta
       http-equiv="X-Content-Security-Policy"
       content="default-src 'self'; script-src 'self'"
-    />
-    <title>Hello from Electron renderer!</title>
+    /> -->
+    <title>MathOverlay</title>
+    <link rel="stylesheet" href="index.css">
+    <script type="module" src="./node_modules/mathlive/dist/mathlive.min.js"></script>
+    <script src="./settings.js"></script>
+    <script src="./renderer.js"></script>
+    <script id="MathJax-script" async src="./node_modules/mathjax/es5/tex-svg.js"></script>
   </head>
 
   <body>
