@@ -1,6 +1,10 @@
 body{
     padding: 0.5em 1em;
     font-size: larger;
+    font-family: system-ui, sans-serif;
+    background-color: #f4f4ef;
+    background-image: url("./icons/wave.png");
+    background-size: 2em;
 }
 
 details{
@@ -9,13 +13,7 @@ details{
 
 summary{
     font-size: small;
-    font-family: sans-serif;
     margin-bottom: 0.25em;
-    cursor: pointer;
-}
-
-summary:hover{
-    background-color: #0000000c;
 }
 
 textarea{
@@ -27,15 +25,49 @@ textarea{
     width: 100%;
 }
 
-.btn{
-    width: 6em;
-    display: inline-block;
-    height: 2em;
-    border: 1px solid black;
-    border-radius: 5px;
-    cursor: pointer;
+#latex_details{
+    margin-top: 1em;
 }
 
-#btn_export_png{
-    
+#btn_root{
+    margin: 0.5em 0 0 0.5em;
+}
+
+.btn{
+    width: 2em;
+    display: inline-block;
+    height: 2em;
+    /* border: 1px solid black; */
+    border-radius: 5px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+summary:hover,.btn:hover{
+    cursor: pointer;
+    background-color: #00000015;
+}
+
+#btn_copy_png{
+    background-image: url("./icons/copy_png.png");
+}
+
+#btn_save_png{
+    background-image: url("./icons/save_png.png");
+}
+
+#btn_save_svg{
+    background-image: url("./icons/save_svg.png");
+}
+
+#feedback{
+    width: 100%;
+    padding: 0.25em 0 0.25em 1em;
+    opacity: 0;
+    font-size: small;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background-color: #FFFFFF99;
 }
