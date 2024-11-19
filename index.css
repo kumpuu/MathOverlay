@@ -5,6 +5,11 @@ body{
     background-color: #f4f4ef;
     background-image: url("./icons/wave.png");
     background-size: 2em;
+    user-select: none;
+}
+
+math-field, textarea{
+    user-select: all;
 }
 
 details{
@@ -23,10 +28,6 @@ textarea{
 
 #formula{
     width: 100%;
-}
-
-#latex_details{
-    margin-top: 1em;
 }
 
 #btn_root{

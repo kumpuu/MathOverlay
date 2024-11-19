@@ -20,23 +20,34 @@
   </head>
 
   <body>
-    <details id="formula_details" open="true" settings="open">
-      <summary>Formula</summary>
-      <math-field id="formula">
-          x=\frac{-b\pm \sqrt{b^2-4ac}}{2a}
-      </math-field>
-    </details>
+    <div id="main">
+      <details id="formula_details" open="true" settings="open">
+        <summary>Formula</summary>
+        <math-field id="formula">
+            x=\frac{-b\pm \sqrt{b^2-4ac}}{2a}
+        </math-field>
+      </details>
 
-    <p id="btn_root">
-      <span id="btn_copy_png" class="btn"></span>
-      <span id="btn_save_png" class="btn"></span>
-      <span id="btn_save_svg" class="btn"></span>
-    </p>
+      <p id="btn_root">
+        <span id="btn_copy_png" class="btn" title="Copy as image"></span>
+        <span id="btn_save_png" class="btn" title="Save as image"></span>
+        <span id="btn_save_svg" class="btn" title="Save as vector graphic"></span>
+      </p>
 
-    <details id="latex_details" open="true" settings="open">
-      <summary>Latex</summary>
-      <textarea class="output" id="latex" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false"></textarea>
-    </details>
+      <br>
+
+      <details id="latex_details" open="true" settings="open">
+        <summary>Latex</summary>
+        <textarea class="output" id="latex" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false"></textarea>
+      </details>
+
+      <br>
+
+      <details id="history" open="true" settings="open">
+        <summary>History</summary>
+        <ol id="history_list"></ol>
+      </details>
+    </div>
 
     <div id="feedback"></div>
   </body>
