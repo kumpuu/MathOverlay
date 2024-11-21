@@ -11,24 +11,21 @@ async function copy_png()
 
     var image = new Image();
     var scale = 5;
-    image.onload = function() {
+    image.onload = async function() {
         var canvas = document.createElement('canvas');
         canvas.width = image.width*scale;
         canvas.height = image.height*scale;
         var context = canvas.getContext('2d');
         context.drawImage(image, 0, 0, canvas.width, canvas.height);
 
-        canvas.toBlob(async (blob) => {
-            if (blob) {
-                try {
-                    const clipboardItem = new ClipboardItem({ 'image/png': blob });
-                    await navigator.clipboard.write([clipboardItem]);
-                    feedback("Image copied to clipboard!");
-                } catch (err) {
-                    feedback("Failed to copy image to clipboard:", 6000, "red");
-                }
-            }
-        }, 'image/png');
+        let err = await cbridge.copy_image_to_clipboard(canvas.toDataURL());
+
+        if(err)
+            feedback("Failed to copy image to clipboard: " + err, 6000, "red");
+        else{
+            feedback("Image copied to clipboard!");
+            history_add(latex, svg);
+        }
     }
     image.src = 'data:image/svg+xml;base64,' + window.btoa(decodeURIComponent(encodeURIComponent(svg)));
 
@@ -62,6 +59,7 @@ async function save_png()
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
+                history_add(latex, svg);
             }
         }, 'image/png');
     }
@@ -86,6 +84,8 @@ async function save_svg()
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+
+    history_add(latex, svg);
 }
 
 // Helper function: Render LaTeX to SVG using MathJax

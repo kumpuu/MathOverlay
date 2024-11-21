@@ -1,11 +1,18 @@
 body{
-    padding: 0.5em 1em;
+    padding: 0.5rem 1rem;
     font-size: larger;
     font-family: system-ui, sans-serif;
     background-color: #f4f4ef;
     background-image: url("./icons/wave.png");
-    background-size: 2em;
+    background-size: 2rem;
     user-select: none;
+    overflow: hidden;
+}
+
+#main{
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
 }
 
 math-field, textarea{
@@ -18,7 +25,7 @@ details{
 
 summary{
     font-size: small;
-    margin-bottom: 0.25em;
+    margin-bottom: 0.25rem;
 }
 
 textarea{
@@ -31,13 +38,13 @@ textarea{
 }
 
 #btn_root{
-    margin: 0.5em 0 0 0.5em;
+    margin: 0.5rem 0 0 0.5rem;
 }
 
 .btn{
-    width: 2em;
+    width: 2rem;
     display: inline-block;
-    height: 2em;
+    height: 2rem;
     /* border: 1px solid black; */
     border-radius: 5px;
     background-size: contain;
@@ -62,9 +69,65 @@ summary:hover,.btn:hover{
     background-image: url("./icons/save_svg.png");
 }
 
+#history{
+    flex: 1;
+    margin-bottom: 2rem;
+    display: contents;
+}
+
+#history_scroller{
+    overflow-y: scroll;
+    margin: 0 0 2rem 0;
+}
+
+#history_list{
+    list-style-type: none;
+    counter-reset: i;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+#history_btn_root{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#history_list>div{
+    padding: 0.25rem;
+}
+
+#history_list>div:before{
+    counter-increment: i;
+    content: counter(i);
+    font-size: small;
+    margin-right: 1rem;
+    border-bottom: 1px solid black;
+}
+
+#history_list>div:nth-child(2n)
+{
+    background-color: #0000000a;
+}
+
+#history_list>div:hover{
+    background-color: #0000001b;
+    cursor: pointer;
+}
+
+#btn_clear_history{
+    background-image: url("./icons/delete.png");
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+#history_list:empty + div #btn_clear_history{
+    display: none;
+}
+
 #feedback{
     width: 100%;
-    padding: 0.25em 0 0.25em 1em;
+    padding: 0.25rem 0 0.25rem 1rem;
     opacity: 0;
     font-size: small;
     position: fixed;

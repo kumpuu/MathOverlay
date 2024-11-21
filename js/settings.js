@@ -9,10 +9,11 @@ function load_settings()
             var val = localStorage.getItem(setting_name(node, setting));
             if(val == null) return;
 
-            if(val == 'null')
-                node.removeAttribute(setting);
-            else
-                node.setAttribute(setting, val);
+            node[setting] = val;
+            // if(val == 'null')
+            //     node.removeAttribute(setting);
+            // else
+            //     node.setAttribute(setting, val);
         });
     });
 }
@@ -23,11 +24,9 @@ function save_settings()
         if(node.id == "" || node.getAttribute("settings") == null) return;
 
         node.getAttribute("settings").split(",").forEach((setting)=>{
-            var val = node.getAttribute(setting);
+            // var val = node.getAttribute(setting);
+            var val = node[setting];
 
-            // if(val == null)
-            //     localStorage.removeItem(setting_name(node, setting));
-            // else
             localStorage.setItem(setting_name(node, setting), val);
         });
     });

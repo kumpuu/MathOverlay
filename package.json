@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.1",
+    "electron-window-state": "^5.0.3",
     "mathjax": "^3.2.2",
     "mathlive": "^0.101.1"
   }

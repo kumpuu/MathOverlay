@@ -16,6 +16,7 @@
     <script type="module" src="./node_modules/mathlive/dist/mathlive.min.js"></script>
     <script src="./js/settings.js"></script>
     <script src="./js/export.js"></script>
+    <script src="./js/history.js"></script>
     <script src="./renderer.js"></script>
     <script id="MathJax-script" async src="./node_modules/mathjax/es5/tex-svg.js"></script>
   </head>
@@ -46,7 +47,12 @@
 
       <details id="history" open="true" settings="open">
         <summary>History</summary>
-        <ol id="history_list"></ol>
+        <div id="history_scroller">
+          <div id="history_list" settings="innerHTML"></div>
+          <div id="history_btn_root">
+            <span id="btn_clear_history" class="btn" title="Clear History"></span>
+          </div>
+        </div>
       </details>
     </div>
 
