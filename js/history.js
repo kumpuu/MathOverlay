@@ -10,8 +10,17 @@ async function history_add(latex, svg=null)
     //I think it's better to compare this instead of innerHTML. It should be more constant across updates
 
     var li = document.createElement("div");
-    li.innerHTML = svg;
-    li.setAttribute("onclick", click);
+
+        var formula = document.createElement("span");
+        formula.className = "history_li_formula";
+        formula.innerHTML = svg;
+        formula.setAttribute("onclick", click);
+    li.appendChild(formula);
+        
+        var del = document.createElement("span");
+        del.className = "btn btn_clear_small";
+        del.setAttribute("onclick", "history_on_delete_li(this);");
+    li.appendChild(del);
 
     list.appendChild(li);
 }
@@ -23,3 +32,8 @@ window.addEventListener("DOMContentLoaded", ()=>{
         }
     }
 });
+
+function history_on_delete_li(button_node)
+{
+    button_node.parentElement.remove();
+}

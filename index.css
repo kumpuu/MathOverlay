@@ -21,6 +21,7 @@ math-field, textarea{
 
 details{
     width: 100%;
+    padding: .1rem;
 }
 
 summary{
@@ -29,12 +30,12 @@ summary{
 }
 
 textarea{
-    width: 100%;
+    width: -webkit-fill-available;
     resize: vertical;
 }
 
 #formula{
-    width: 100%;
+    width: -webkit-fill-available;
 }
 
 #btn_root{
@@ -76,7 +77,7 @@ summary:hover,.btn:hover{
 }
 
 #history_scroller{
-    overflow-y: scroll;
+    overflow-y: auto;
     margin: 0 0 2rem 0;
 }
 
@@ -95,6 +96,8 @@ summary:hover,.btn:hover{
 
 #history_list>div{
     padding: 0.25rem;
+    display: flex;
+    align-items: center;
 }
 
 #history_list>div:before{
@@ -113,12 +116,34 @@ summary:hover,.btn:hover{
 #history_list>div:hover{
     background-color: #0000001b;
     cursor: pointer;
+    transition: background-color 0.1s;
+}
+
+.history_li_formula{
+    width: 100%;
 }
 
 #btn_clear_history{
     background-image: url("./icons/delete.png");
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    opacity: 0.8;
+}
+
+#btn_clear_history:hover{
+    opacity: 1;
+}
+
+.btn_clear_small{
+    background-image: url("./icons/delete.png");
+    width: 0.8em;
+    height: 0.8em;
+    opacity: 0.15;
+    transition: opacity 0.2s;
+}
+
+#history_list>div:hover>.btn_clear_small{
+    opacity: 1;
 }
 
 #history_list:empty + div #btn_clear_history{
