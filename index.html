@@ -18,12 +18,13 @@
     <script src="./js/export.js"></script>
     <script src="./js/history.js"></script>
     <script src="./renderer.js"></script>
-    <script id="MathJax-script" async src="./node_modules/mathjax/es5/tex-svg.js"></script>
+    <script id="MathJax-script" src="./node_modules/mathjax/es5/tex-svg.js"></script>
+    <!-- <script id="MathJax-script" async src="./node_modules/mathjax/es5/mml-chtml.js"></script> -->
   </head>
 
   <body>
-    <div id="main">
-      <details id="formula_details" open="true" settings="open">
+    <div id="main" style="opacity: 0">
+      <details id="formula_details" open="true" store="open">
         <summary>Formula</summary>
         <math-field id="formula">
             x=\frac{-b\pm \sqrt{b^2-4ac}}{2a}
@@ -38,17 +39,17 @@
 
       <br>
 
-      <details id="latex_details" open="true" settings="open">
+      <details id="latex_details" open="true" store="open">
         <summary>Latex</summary>
         <textarea class="output" id="latex" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false"></textarea>
       </details>
 
       <br>
 
-      <details id="history" open="true" settings="open">
+      <details id="history" open="true" store="open">
         <summary>History</summary>
         <div id="history_scroller">
-          <div id="history_list" settings="innerHTML"></div>
+          <div id="history_list" store="innerHTML"></div>
           <div id="history_btn_root">
             <span id="btn_clear_history" class="btn" title="Clear History"></span>
           </div>
@@ -56,6 +57,59 @@
       </details>
     </div>
 
+    <div id="settings">
+      <div>
+        <label for="theme">Theme</label>
+        <select name="theme" id="theme" setting>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+          <!-- <option value="mercedes">Mercedes</option> -->
+        </select>
+      </div>
+      
+      <div>
+        <div>
+          <label for="formula_font_color">Export Font Color</label>
+          <input type="color" id="formula_font_color" name="formula_font_color" value="#000000" setting/>
+          <label for="formula_font_color_alpha">Opacity</label>
+          <input type="range" id="formula_font_color_alpha" name="formula_font_color_alpha" min="0" max="255" step="1" value="255" setting/>
+        </div>
+
+        <div>
+          <label for="formula_background_color">Export Background Color</label>
+          <input type="color" id="formula_background_color" name="formula_background_color" value="#FFFFFF" setting/>
+          <label for="formula_background_color_alpha">Opacity</label>
+          <input type="range" id="formula_background_color_alpha" name="formula_background_color_alpha" min="0" max="255" step="1" value="0" setting/>
+        </div>
+
+        <div id="settings_formula_preview">
+        </div>
+        <script>
+          window.addEventListener("DOMContentLoaded", async ()=>{
+            var svg = await renderLatexToSVG("x=\\frac{-b\\pm \\sqrt{b^2-4ac}}{2a}");
+            document.getElementById("settings_formula_preview").innerHTML = svg;
+          });
+
+          var sheet = window.document.styleSheets[0];
+          sheet.insertRule('g { }', sheet.cssRules.length);
+          var __svg_rule_g   = sheet.cssRules.item(sheet.cssRules.length-1);
+          sheet.insertRule('svg { }', sheet.cssRules.length);
+          var __svg_rule_svg = sheet.cssRules.item(sheet.cssRules.length-1);
+
+          function update_preview(e){
+            let c = settings.items.formula_font_color + s2hex(settings.items.formula_font_color_alpha);
+            let bg = settings.items.formula_background_color + s2hex(settings.items.formula_background_color_alpha);
+
+            __svg_rule_g.style.color = c;
+            __svg_rule_svg.style.backgroundColor = bg;
+          }
+          window.addEventListener("setting_input", update_preview);
+          window.addEventListener("after_settings_loaded", update_preview);
+        </script>
+      </div>
+    </div>
+
     <div id="feedback"></div>
+    <div id="btn_settings" class="btn"></div>
   </body>
 </html>

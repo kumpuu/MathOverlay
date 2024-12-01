@@ -160,3 +160,52 @@ summary:hover,.btn:hover{
     bottom: 0;
     background-color: #FFFFFF99;
 }
+
+#btn_settings{
+    background-image: url("./icons/settings.png");
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    margin: .2rem;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+#settings{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 0.5rem 1rem;
+    font-size: smaller;
+    display: flex;
+    flex-direction: column;
+}
+
+#settings>div{
+    background-color: #0000001a;
+    width: 100%;
+    padding: 0.2em;
+    margin: 0.2em;
+}
+
+#settings label{
+    min-width: 15em;
+    display: inline-block;
+    font-size: smaller;
+}
+
+#settings_formula_preview{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+input,label,select{
+    margin-right: 1em;
+}
+
+input~label{
+    min-width: 2em !important;
+}

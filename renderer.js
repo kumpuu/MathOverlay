@@ -1,3 +1,17 @@
+//non-empty-string
+function nes(str){
+    return (typeof str === "string") && (str.length > 0);
+}
+
+function s2hex(str, pad = 2)
+{
+    let res = Number(str).toString(16);
+    while(res.length < pad){
+        res = "0" + res;
+    }
+    return res;
+}
+
 window.addEventListener("DOMContentLoaded", () => {
     const mf = document.getElementById("formula");
     const latex = document.getElementById("latex");
