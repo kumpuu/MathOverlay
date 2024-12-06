@@ -102,6 +102,7 @@ async function renderLatexToSVG(latex) {
     // }
 
     // Render LaTeX to SVG using MathJax
+    latex = latex.replace("{\\displaylines ", "\\displaylines{ ");
     const svg = MathJax.tex2svg(latex, { display: true });
     return svg.getElementsByTagName("svg")[0].outerHTML;
 }

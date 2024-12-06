@@ -6,7 +6,7 @@ async function history_add(latex, svg=null)
 
     let click = 'let latex = b64DecodeUnicode("' + b64EncodeUnicode(latex) + '");'
         + 'set_formula(latex);'
-    if(list.lastChild != null && list.lastChild.getAttribute("onclick") == click) return;
+    if(list.lastChild != null && list.lastChild.firstChild.getAttribute("onclick") == click) return;
     //I think it's better to compare this instead of innerHTML. It should be more constant across updates
 
     var li = document.createElement("div");
