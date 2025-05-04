@@ -98,6 +98,7 @@ summary:hover,.btn:hover{
     padding: 0.25rem;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid #00000045;
 }
 
 #history_list>div:before{
